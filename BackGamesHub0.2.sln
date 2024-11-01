@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35417.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{BB4B325C-FB78-4D5A-9E3F-8693357144EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{92058602-AED9-4794-AE66-6BABB492ED5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi", "RestApi\RestApi.csproj", "{8570021A-5725-41C6-982D-7239B74F890D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB4B325C-FB78-4D5A-9E3F-8693357144EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB4B325C-FB78-4D5A-9E3F-8693357144EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB4B325C-FB78-4D5A-9E3F-8693357144EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB4B325C-FB78-4D5A-9E3F-8693357144EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92058602-AED9-4794-AE66-6BABB492ED5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92058602-AED9-4794-AE66-6BABB492ED5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92058602-AED9-4794-AE66-6BABB492ED5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92058602-AED9-4794-AE66-6BABB492ED5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8570021A-5725-41C6-982D-7239B74F890D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8570021A-5725-41C6-982D-7239B74F890D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8570021A-5725-41C6-982D-7239B74F890D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8570021A-5725-41C6-982D-7239B74F890D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DemoGamesHub36" Class="ConexionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=DemoGamesHub36;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="AccesoDatos.Properties.Settings" SettingsPropertyName="DemoGamesHub36ConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SP_CERRAR_SESION_CON_TOKEN" Method="SP_CERRAR_SESION_CON_TOKEN">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CREAR_USUARIO" Method="SP_CREAR_USUARIO">
+    <Parameter Name="NOMBRE_USUARIO" Parameter="nOMBRE_USUARIO" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CONTRASENA" Parameter="cONTRASENA" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ENVIAR_SOLICITUD_AMISTAD" Method="SP_ENVIAR_SOLICITUD_AMISTAD">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="UID_AMIGO" Parameter="uID_AMIGO" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_INICIAR_SESION" Method="SP_INICIAR_SESION">
+    <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CONTRASENA" Parameter="cONTRASENA" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ORIGEN" Parameter="oRIGEN" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="TOKEN_GENERADO" Parameter="tOKEN_GENERADO" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_OBTENER_AMIGOS" Method="SP_OBTENER_AMIGOS">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_AMIGOSResult">
+      <Column Name="AMIGO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE_USUARIO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_AMISTAD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_COMPRAS_USUARIO" Method="SP_OBTENER_COMPRAS_USUARIO">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_COMPRAS_USUARIOResult">
+      <Column Name="COMPRA_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE_OBJETO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_COMPRA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_ESTADO_SOLICITUD_AMISTAD" Method="SP_OBTENER_ESTADO_SOLICITUD_AMISTAD">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="SOLICITUD_ID" Parameter="sOLICITUD_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_OBTENER_ESTADO_SOLICITUD_AMISTADResult">
+      <Column Name="SOLICITUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ESTADO" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_SOLICITUD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_ITEMS_TIENDA" Method="SP_OBTENER_ITEMS_TIENDA">
+    <ElementType Name="SP_OBTENER_ITEMS_TIENDAResult">
+      <Column Name="OBJETO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE_OBJETO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PRECIO_PUNTOS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_JUEGOS" Method="SP_OBTENER_JUEGOS">
+    <ElementType Name="SP_OBTENER_JUEGOSResult">
+      <Column Name="JUEGO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE_JUEGO" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TIPO_JUEGO" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_LOGROS_BLOQUEADOS" Method="SP_OBTENER_LOGROS_BLOQUEADOS">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_LOGROS_BLOQUEADOSResult">
+      <Column Name="LOGRO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="JUEGO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CRITERIO_DESBLOQUEO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="VALOR_CRITERIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_LOGROS_DESBLOQUEADOS" Method="SP_OBTENER_LOGROS_DESBLOQUEADOS">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_LOGROS_DESBLOQUEADOSResult">
+      <Column Name="LOGRO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="JUEGO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_LOGRO" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_NOTIFICACIONES_USUARIO" Method="SP_OBTENER_NOTIFICACIONES_USUARIO">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_NOTIFICACIONES_USUARIOResult">
+      <Column Name="TIPO_NOTIFICACION" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MENSAJE" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_NOTIFICACION" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_PUNTAJE_TOTAL_USUARIOS" Method="SP_OBTENER_PUNTAJE_TOTAL_USUARIOS">
+    <ElementType Name="SP_OBTENER_PUNTAJE_TOTAL_USUARIOSResult">
+      <Column Name="USUARIO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PUNTAJE_TOTAL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_ACTUALIZACION" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_SANCIONES" Method="SP_OBTENER_SANCIONES">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_SANCIONESResult">
+      <Column Name="MENSAJE" Type="System.String" DbType="VarChar(48) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_SOLICITUDES_AMISTAD_PENDIENTES" Method="SP_OBTENER_SOLICITUDES_AMISTAD_PENDIENTES">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="SP_OBTENER_SOLICITUDES_AMISTAD_PENDIENTESResult">
+      <Column Name="SOLICITUD_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USUARIO_EMISOR_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE_EMISOR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ESTADO" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_SOLICITUD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_OBTENER_TODOS_LOS_REPORTES" Method="SP_OBTENER_TODOS_LOS_REPORTES">
+    <ElementType Name="SP_OBTENER_TODOS_LOS_REPORTESResult">
+      <Column Name="REPORTE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USUARIO_REPORTADO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USUARIO_REPORTADOR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_REPORTE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ESTADO" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CERRAR_JUEGO_INDIVIDUAL_POR_TOKEN" Method="SP_CERRAR_JUEGO_INDIVIDUAL_POR_TOKEN">
+    <Parameter Name="PARTIDA_ID" Parameter="pARTIDA_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="PUNTAJE_OBTENIDO" Parameter="pUNTAJE_OBTENIDO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ACEPTAR_SOLICITUD_AMISTAD" Method="SP_ACEPTAR_SOLICITUD_AMISTAD">
+    <Parameter Name="SOLICITUD_ID" Parameter="sOLICITUD_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CERRAR_PARTIDA_MULTIJUGADOR_CSV" Method="SP_CERRAR_PARTIDA_MULTIJUGADOR_CSV">
+    <Parameter Name="PARTIDA_ID" Parameter="pARTIDA_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PUNTAJES_CSV" Parameter="pUNTAJES_CSV" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_COMPRAR_ITEM_TIENDA" Method="SP_COMPRAR_ITEM_TIENDA">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="OBJETO_ID" Parameter="oBJETO_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_DESBLOQUEAR_LOGRO_POR_TOKEN" Method="SP_DESBLOQUEAR_LOGRO_POR_TOKEN">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="LOGRO_ID" Parameter="lOGRO_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CRITERIO_VALOR" Parameter="cRITERIO_VALOR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_EDITAR_USUARIO2" Method="SP_EDITAR_USUARIO2">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="NUEVO_NOMBRE" Parameter="nUEVO_NOMBRE" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NUEVO_EMAIL" Parameter="nUEVO_EMAIL" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ELIMINAR_AMIGO" Method="SP_ELIMINAR_AMIGO">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AMIGO_UID" Parameter="aMIGO_UID" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ENVIAR_MENSAJE" Method="SP_ENVIAR_MENSAJE">
+    <Parameter Name="TOKEN_EMISOR" Parameter="tOKEN_EMISOR" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="RECEPTOR_UID" Parameter="rECEPTOR_UID" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="MENSAJE_TEXTO" Parameter="mENSAJE_TEXTO" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_GUARDAR_PARTIDA_IA" Method="SP_GUARDAR_PARTIDA_IA">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="JUEGO_ID" Parameter="jUEGO_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INSTRUCCIONES_INICIALES" Parameter="iNSTRUCCIONES_INICIALES" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CONTEXTO_JUEGO" Parameter="cONTEXTO_JUEGO" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="NARRATIVA_FONDO" Parameter="nARRATIVA_FONDO" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ESTADO_MENTAL" Parameter="eSTADO_MENTAL" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CONFIGURACION" Parameter="cONFIGURACION" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PARTIDA_ID" Parameter="pARTIDA_ID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="PARTIDA_UID" Parameter="pARTIDA_UID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_GUARDAR_PARTIDA_INDIVIDUAL" Method="SP_GUARDAR_PARTIDA_INDIVIDUAL">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="JUEGO_ID" Parameter="jUEGO_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PARTIDA_ID" Parameter="pARTIDA_ID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="PARTIDA_UID" Parameter="pARTIDA_UID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_INGRESAR_ITEM_TIENDA" Method="SP_INGRESAR_ITEM_TIENDA">
+    <Parameter Name="NOMBRE_OBJETO" Parameter="nOMBRE_OBJETO" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="PRECIO_PUNTOS" Parameter="pRECIO_PUNTOS" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DESCRIPCION" Parameter="dESCRIPCION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_INGRESAR_JUEGO" Method="SP_INGRESAR_JUEGO">
+    <Parameter Name="NOMBRE_JUEGO" Parameter="nOMBRE_JUEGO" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TIPO_JUEGO" Parameter="tIPO_JUEGO" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="JUEGO_ID" Parameter="jUEGO_ID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_INGRESAR_LOGRO" Method="SP_INGRESAR_LOGRO">
+    <Parameter Name="NOMBRE_LOGRO" Parameter="nOMBRE_LOGRO" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="DESCRIPCION" Parameter="dESCRIPCION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="JUEGO_ID" Parameter="jUEGO_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PUNTOS_OTORGADOS" Parameter="pUNTOS_OTORGADOS" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CRITERIO_DESBLOQUEO" Parameter="cRITERIO_DESBLOQUEO" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="VALOR_CRITERIO" Parameter="vALOR_CRITERIO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USUARIO_ADMIN_ID" Parameter="uSUARIO_ADMIN_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_INICIAR_PARTIDA_MULTIJUGADOR" Method="SP_INICIAR_PARTIDA_MULTIJUGADOR">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="JUEGO_ID" Parameter="jUEGO_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PARTIDA_ID" Parameter="pARTIDA_ID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="PARTIDA_UID" Parameter="pARTIDA_UID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_MARCAR_MENSAJES_LEIDOS" Method="SP_MARCAR_MENSAJES_LEIDOS">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AMIGO_UID" Parameter="aMIGO_UID" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_RECHAZAR_SOLICITUD_AMISTAD" Method="SP_RECHAZAR_SOLICITUD_AMISTAD">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="SOLICITUD_ID" Parameter="sOLICITUD_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_RECUPERAR_MENSAJES" Method="SP_RECUPERAR_MENSAJES">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AMIGO_UID" Parameter="aMIGO_UID" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <ElementType Name="SP_RECUPERAR_MENSAJESResult">
+      <Column Name="MENSAJE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMISOR_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RECEPTOR_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENSAJE_TEXTO" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FECHA_ENVIO" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_REPORTAR_USUARIO" Method="SP_REPORTAR_USUARIO">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="REPORTADO_UID" Parameter="rEPORTADO_UID" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="DESCRIPCION" Parameter="dESCRIPCION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_UNIRSE_PARTIDA_MULTIJUGADOR_UID" Method="SP_UNIRSE_PARTIDA_MULTIJUGADOR_UID">
+    <Parameter Name="TOKEN_SESION" Parameter="tOKEN_SESION" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="PARTIDA_UID" Parameter="pARTIDA_UID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_SANCIONAR_USUARIO_REPORTADO" Method="SP_SANCIONAR_USUARIO_REPORTADO">
+    <Parameter Name="REPORTE_ID" Parameter="rEPORTE_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TIPO_SANCION" Parameter="tIPO_SANCION" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="DESCRIPCION" Parameter="dESCRIPCION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="FECHA_FIN" Parameter="fECHA_FIN" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="IDRETURN" Parameter="iDRETURN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORID" Parameter="eRRORID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="ERRORDESCRIPCION" Parameter="eRRORDESCRIPCION" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

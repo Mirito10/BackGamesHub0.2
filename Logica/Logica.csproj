@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92058602-AED9-4794-AE66-6BABB492ED5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logica</RootNamespace>
+    <AssemblyName>Logica</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CapaLogica\LogicaAmigos.cs" />
+    <Compile Include="CapaLogica\LogicaJuegos.cs" />
+    <Compile Include="CapaLogica\LogicaLogros.cs" />
+    <Compile Include="CapaLogica\LogicaMensajes.cs" />
+    <Compile Include="CapaLogica\LogicaReportes.cs" />
+    <Compile Include="CapaLogica\LogicaTienda.cs" />
+    <Compile Include="CapaLogica\LogicaUsuarios.cs" />
+    <Compile Include="Entidades\Modelos\Amigos.cs" />
+    <Compile Include="Entidades\Modelos\Compra.cs" />
+    <Compile Include="Entidades\Modelos\EditarUsuario.cs" />
+    <Compile Include="Entidades\Modelos\AccionesAmigo.cs" />
+    <Compile Include="Entidades\Modelos\Errores.cs" />
+    <Compile Include="Entidades\Modelos\ItemsTienda.cs" />
+    <Compile Include="Entidades\Modelos\Juego.cs" />
+    <Compile Include="Entidades\Modelos\JWT.cs" />
+    <Compile Include="Entidades\Modelos\Logros.cs" />
+    <Compile Include="Entidades\Modelos\Mensajes.cs" />
+    <Compile Include="Entidades\Modelos\Notificaciones.cs" />
+    <Compile Include="Entidades\Modelos\Partida.cs" />
+    <Compile Include="Entidades\Modelos\PartidaIA.cs" />
+    <Compile Include="Entidades\Modelos\PartidaMultijugador.cs" />
+    <Compile Include="Entidades\Modelos\PuntajeMultijugador.cs" />
+    <Compile Include="Entidades\Modelos\Reportes.cs" />
+    <Compile Include="Entidades\Modelos\Sanciones.cs" />
+    <Compile Include="Entidades\Modelos\Sesion.cs" />
+    <Compile Include="Entidades\Modelos\SolicitudAmigo.cs" />
+    <Compile Include="Entidades\Modelos\Tienda.cs" />
+    <Compile Include="Entidades\Modelos\Usuarios.cs" />
+    <Compile Include="Entidades\Request\ReqAmigos\ReqEliminarAmigos.cs" />
+    <Compile Include="Entidades\Request\ReqAmigos\ReqEnviarSolicitud.cs" />
+    <Compile Include="Entidades\Request\ReqAmigos\ReqObtenerAmigos.cs" />
+    <Compile Include="Entidades\Request\ReqAmigos\ReqObtenerEstadoSolicitud.cs" />
+    <Compile Include="Entidades\Request\ReqAmigos\ReqObtenerSolicitudesPendientes.cs" />
+    <Compile Include="Entidades\Request\ReqAmigos\ReqRechazarSolicitud.cs" />
+    <Compile Include="Entidades\Request\ReqBase.cs" />
+    <Compile Include="Entidades\Request\ReqJuegos\ReqIngresarJuego.cs" />
+    <Compile Include="Entidades\Request\ReqJuegos\ReqObtenerJuegos.cs" />
+    <Compile Include="Entidades\Request\ReqLogros\ReqDesbloquearLogros.cs" />
+    <Compile Include="Entidades\Request\ReqLogros\ReqIngresarLogro.cs" />
+    <Compile Include="Entidades\Request\ReqLogros\ReqObtenerLogrosBloqueados.cs" />
+    <Compile Include="Entidades\Request\ReqLogros\ReqObtenerLogrosDesbloqueados.cs" />
+    <Compile Include="Entidades\Request\ReqMensajes\ReqEnviarMensajes.cs" />
+    <Compile Include="Entidades\Request\ReqMensajes\ReqMarcarMensajes.cs" />
+    <Compile Include="Entidades\Request\ReqMensajes\ReqRecuperarMensajes.cs" />
+    <Compile Include="Entidades\Request\ReqPartidas\ReqCerrarJuegoIndividual.cs" />
+    <Compile Include="Entidades\Request\ReqPartidas\ReqCerrarPartidaMultijugador.cs" />
+    <Compile Include="Entidades\Request\ReqPartidas\ReqGenerarPartida.cs" />
+    <Compile Include="Entidades\Request\ReqPartidas\ReqGenerarPartidaIA.cs" />
+    <Compile Include="Entidades\Request\ReqPartidas\ReqIniciarPartidaMultijugador.cs" />
+    <Compile Include="Entidades\Request\ReqPartidas\ReqUnirseMultijugador.cs" />
+    <Compile Include="Entidades\Request\ReqReportes\ReqReportarUsuario.cs" />
+    <Compile Include="Entidades\Request\ReqReportes\ReqReportes.cs" />
+    <Compile Include="Entidades\Request\ReqReportes\ReqSancionar.cs" />
+    <Compile Include="Entidades\Request\ReqSolicitudes\ReqAceptarSolicitudAmistad.cs" />
+    <Compile Include="Entidades\Request\ReqTienda\ReqIngresarItem.cs" />
+    <Compile Include="Entidades\Request\ReqTienda\ReqComprarItem.cs" />
+    <Compile Include="Entidades\Request\ReqTienda\ReqObtenerCompras.cs" />
+    <Compile Include="Entidades\Request\ReqTienda\ReqObtenerItemsTienda.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqCerrarSesion.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqCrearUsuario.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqEditarUsuario.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqIniciarSesion.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqObtenerNotificaciones.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqObtenerPuntaje.cs" />
+    <Compile Include="Entidades\Request\ReqUsuario\ReqObtenerSanciones.cs" />
+    <Compile Include="Entidades\Response\ResAmigos\ResElimiarAmigos.cs" />
+    <Compile Include="Entidades\Response\ResAmigos\ResEnviarSolicitud.cs" />
+    <Compile Include="Entidades\Response\ResAmigos\ResObtenerAmigos.cs" />
+    <Compile Include="Entidades\Response\ResAmigos\ResObtenerEstadoSolicitud.cs" />
+    <Compile Include="Entidades\Response\ResAmigos\ResObtenerSolicitudesPendientes.cs" />
+    <Compile Include="Entidades\Response\ResAmigos\ResRechazarSolicitud.cs" />
+    <Compile Include="Entidades\Response\ResBase.cs" />
+    <Compile Include="Entidades\Response\ResJuegos\ResIngresarJuego.cs" />
+    <Compile Include="Entidades\Response\ResJuegos\ResObtenerJuegos.cs" />
+    <Compile Include="Entidades\Response\ResLogros\ResDesbloquearLogros.cs" />
+    <Compile Include="Entidades\Response\ResLogros\ResIngresarLogro.cs" />
+    <Compile Include="Entidades\Response\ResLogros\ResObtenerLogrosBloqueados.cs" />
+    <Compile Include="Entidades\Response\ResLogros\ResObtenerLogrosDesbloqueados.cs" />
+    <Compile Include="Entidades\Response\ResMensajes\ResEnviarMensaje.cs" />
+    <Compile Include="Entidades\Response\ResMensajes\ResMarcarMensajes.cs" />
+    <Compile Include="Entidades\Response\ResMensajes\ResRecuperarMensajes.cs" />
+    <Compile Include="Entidades\Response\ResPartidas\ResCerrarPartidaIndividual.cs" />
+    <Compile Include="Entidades\Response\ResPartidas\ResCerrarPartidaMultijugador.cs" />
+    <Compile Include="Entidades\Response\ResPartidas\ResGenerarPartida.cs" />
+    <Compile Include="Entidades\Response\ResPartidas\ResGenerarPartidaIA.cs" />
+    <Compile Include="Entidades\Response\ResPartidas\ResIniciarPartidaMulitjugador.cs" />
+    <Compile Include="Entidades\Response\ResPartidas\ResUnirseMultijugador.cs" />
+    <Compile Include="Entidades\Response\ResReportes\ResReportarUsuario.cs" />
+    <Compile Include="Entidades\Response\ResReportes\ResReportes.cs" />
+    <Compile Include="Entidades\Response\ResReportes\ResSancionar.cs" />
+    <Compile Include="Entidades\Response\ResSolicitudes\ResAceptarSolicitudesAmistad.cs" />
+    <Compile Include="Entidades\Response\ResTienda\ResComprarItem.cs" />
+    <Compile Include="Entidades\Response\ResTienda\ResIngresarItem.cs" />
+    <Compile Include="Entidades\Response\ResTienda\ResObtenerCompras.cs" />
+    <Compile Include="Entidades\Response\ResTienda\ResObtenerItemsTienda.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResCerrarSesion.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResCrearUsuario.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResEditarUsuario.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResIniciarSesion.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResObtenerNotificaciones.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResObtenerPuntaje.cs" />
+    <Compile Include="Entidades\Response\ResUsuario\ResObtenerSanciones.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{bb4b325c-fb78-4d5a-9e3f-8693357144ea}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
